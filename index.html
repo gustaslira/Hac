@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hues and Cues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        img.cartas {
+            max-width: 300px;
+            max-height: 400px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img.tabuleiro {
+            max-width: 800px;
+            max-height: 600px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagem Aleatória</h1>
+    <button class="btn" onclick="mostrarImagemAleatoria()">Mostrar Carta</button>
+    <button class="btn" onclick="mostrarTabuleiro()">Mostrar Tabuleiro Completo</button>
+    <div id="imagem-container"></div>
+
+    <script>
+        function mostrarImagemAleatoria() {
+            var caminhoDiretorio = "C:\\Users\\Gustavo\\Documents\\Hues and Cues\\Cards\\";
+            var imagens = [];
+            for (var i = 1; i <= 227; i++) {
+                imagens.push('Hac (' + i + ').png');
+            }
+            var indiceAleatorio = Math.floor(Math.random() * imagens.length);
+            var imagemAleatoria = caminhoDiretorio + imagens[indiceAleatorio];
+
+            var imagemContainer = document.getElementById('imagem-container');
+            imagemContainer.innerHTML = '<img class="cartas" src="' + imagemAleatoria + '" alt="Imagem Aleatória">';
+        }
+
+        function mostrarTabuleiro() {
+            var caminhoTabuleiro = "C:\\Users\\Gustavo\\Documents\\Hues and Cues\\";
+            var tabuleiroCompleto = caminhoTabuleiro + "tabuleiro.jpg";
+
+            var imagemContainer = document.getElementById('imagem-container');
+            imagemContainer.innerHTML = '<img class="tabuleiro" src="' + tabuleiroCompleto + '" alt="Tabuleiro Completo">';
+        }
+    </script>
+</body>
+</html>
